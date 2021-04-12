@@ -29,10 +29,14 @@ var userInput = window.prompt("How many characters will your password be? Must b
 
 if (passLength < 8) {
     window.alert("Invalid input! Password must be AT LEAST 8 characters!");
+    console.log("----")
 };
 
 if (passLength > 128) {
     window.alert("Invalid input! Password can't exceed 128 characters!");
+    
 };
 
-
+function generatePassword() {
+	return password;
+}
