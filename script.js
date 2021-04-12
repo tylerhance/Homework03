@@ -45,8 +45,33 @@ if(passwordLength > 128) {
 }
 
 // Confirms lowercase true/false
-var lowercase = confirm("Would you like lowercase characters?");
+var lowercaseUserChoice = confirm("Would you like lowercase characters?");
 
-if(lowercase) {
+if(lowercaseUserChoice) {
     passwordChar += lowercaseChar;
 }
+
+// Confirms uppercase true/false
+var uppercaseUserChoice = confirm("Would you like uppercase characters?");
+
+if(uppercaseUserChoice) {
+    passwordChar += uppercaseChar;
+}
+
+// Confirms boolean for numbers
+var numberUserChoice = confirm("Would you like to add some numbers?");
+
+if(numberUserChoice) {
+    passwordChar += numericChar;
+}
+
+var specialCharUserChoice = confirm("Would you like to add some special characters too?");
+ 
+if (specialCharUserChoice) {
+    passwordChar += specialChar;
+}
+
+for (var i = 0; i < passwordLength; i++); {
+    password = passwordChar[Math.floor(Math.random() * passwordChar.length)]
+}
+
