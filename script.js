@@ -95,11 +95,57 @@ function chooseSpecial() {
 // Function for random generating password
 function generatePassword() {
     chooseLength();
+    console.log(passwordLength);
+    chooseUpper();
+    console.log(uppercaseCheck);
+    chooseNumbers();
+    console.log(numberCheck);
+    chooseSpecial();
+    console.log(specialCheck);
+
+var characters = lowercaseChar;
+var password = "";
+if (uppercaseCheck && numberCheck && specialCheck) {
+    characters += uppercaseChar + numberChar + specialChar;
+  }
+  if (uppercaseCheck && numberCheck) {
+    characters += uppercaseChar + numberChar;
+  }
+  if (numberCheck && specialCheck) {
+    characters += numberChar + specialChar;
+  }
+  if (uppercaseCheck && specialCheck) {
+    characters += uppercaseChar + specialChar;
+  }
+  if (uppercaseCheck) {
+    characters += uppercaseChar;
+  }
+  if (numberCheck) {
+    characters += numberChar;
+  }
+  if (specialCheck) {
+    characters += specialChar;
+  } else {
+    characters === lowercaseChar;
+  }
+
+  for (var i = 0; i < passwordLength; i++) {
+    password += characters.charAt(Math.floor(Math.random() * characters.length));  
+  }
+  return password;
 }
 
-
-
+// Function for password input generation fulfilled
+function writePassword() {
+    var password = "";
+    password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
 }
+}
+
+// Event listener for the 'generate' button
+generateBtn.addEventListener("click", writePassword);
 
 
 
