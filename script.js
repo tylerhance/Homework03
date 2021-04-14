@@ -2,29 +2,32 @@
 var generateBtn = document.querySelector("#generate");
 
 //Write password to the #password input
-function writePassword() {
+/*function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-  
     passwordText.value = password;
-  }
+  */
 
 // Add Event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", writePassword);
 
 // Array for lower case to upper case
 //var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
 
 //Variables for password generator
-var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
-var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var generateBtn = document.querySelector("#generate");
+var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
+var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numberChar = "0123456789";
 var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|";
 var specialCheck = "";
 var passwordLength = "";
-var uppercaseCheck = "";
+var upperCaseCheck = "";
 var numberCheck = "";
 var specialCheck = "";
+
+//var writePassword = "";
+
 
 // Function asking user for password length
 function chooseLength() {
@@ -45,18 +48,17 @@ return passwordLength;
 
 // Function asking user if they want uppercase characters
 function chooseUpper() {
-    uppercaseCheck = prompt("Do you want uppercase letters in your password? \n(Yes or No)");
+    upperCaseCheck = prompt("Do you want uppercase letters in your password? \n(Yes or No)");
 
-    uppercaseCheck = uppercaseCheck.toLowerCase();
+    upperCaseCheck = upperCaseCheck.toLowerCase();
     
-    if (uppercaseCheck === "yes" || uppercaseCheck === "y") {
-        uppercaseCheck = true;
-        return uppercaseCheck;
+    if (upperCaseCheck === "yes" || upperCaseCheck === "y") {
+        upperCaseCheck = true;
+        return upperCaseCheck;
     }
-    if (uppercaseCheck === "no" || uppercaseCheck === "n") {
-        uppercaseCheck = false;
-        return uppercaseCheck;
-        chooseUpper();
+    else if (uppercaseCheck === "no" || upperCaseCheck === "n") {
+        upperCaseCheck = false;
+        return upperCaseCheck;
     }
     return uppercaseCheck;
 }
@@ -75,7 +77,7 @@ function chooseNumbers() {
         numberCheck = false;
         return numberCheck;
 };
-
+}
 // Function asking user if they want special characters
 function chooseSpecial() {
     specialCheck = prompt("Would you like to include special characters in your password? \n(Yes or No");
@@ -93,7 +95,7 @@ function chooseSpecial() {
 }
 
 // Function for random generating password
-function generatePassword() {
+var generatePassword = function() {
     chooseLength();
     console.log(passwordLength);
     chooseUpper();
@@ -135,17 +137,19 @@ if (uppercaseCheck && numberCheck && specialCheck) {
   return password;
 }
 
-// Function for password input generation fulfilled
+
+
 function writePassword() {
     var password = "";
     password = generatePassword();
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
-}
-}
+  }
+  
+  generateBtn.addEventListener("click", writePassword);
 
-// Event listener for the 'generate' button
-generateBtn.addEventListener("click", writePassword);
+
+
 
 
 
