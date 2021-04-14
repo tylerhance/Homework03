@@ -8,6 +8,6 @@
 
 <h2>Links</h2>
 
-* Check out my deployed Password Generator @ 
+* Check out my deployed Password Generator @ https://tylerhance.github.io/Random-Password-Generator/
 
 ![MyPasswordGeneratorScreenshot](./images/pwdgenscreenshot.png)
