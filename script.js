@@ -17,26 +17,30 @@ var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 // Array for lower case to upper case
-var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
+//var upperCase = lowerCase.map(lowerCase => lowerCase.toUpperCase());
 
-// Main function to generate password
-function generatePassword(){
-    var password = "";
+//Variables for password generator
+var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numberChar = "0123456789";
+var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|";
+var passwordLength = "";
+var uppercaseCheck = "";
+var numberCheck = "";
+var specialCheck = "";
+
+// Function asking user for password length
+function chooseLength() {
+    passwordLength = prompt(
+        "How many characters would you like your password to be? (Must be 8-128 characters)."
+    );
+// Verify the user input is valid
+if (passwordLength < 8) {
+    alert("Password length must be a number between 8-128 characters");
+    determineLength();
 }
-var passLength = Math.floor(Math.random() * password.length);
-//Prompting user input for password
-var userInput = window.prompt("How many characters will your password be? Must be 8-128 characters!");
-
-if (passLength < 8) {
-    window.alert("Invalid input! Password must be AT LEAST 8 characters!");
-    console.log("----")
-};
-
-if (passLength > 128) {
-    window.alert("Invalid input! Password can't exceed 128 characters!");
-    
-};
-
-function generatePassword() {
-	return password;
+if (passwordLength > 128) {
+    alert("Invalid input! Password must be no more than 128 characters!");
+    chooseLength();
+}
 }
