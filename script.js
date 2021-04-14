@@ -1,5 +1,5 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+//var generateBtn = document.querySelector("#generate");
 
 //Write password to the #password input
 /*function writePassword() {
@@ -56,16 +56,18 @@ function chooseUpper() {
         upperCaseCheck = true;
         return upperCaseCheck;
     }
-    else if (uppercaseCheck === "no" || upperCaseCheck === "n") {
+    if (upperCaseCheck === "no" || upperCaseCheck === "n") {
         upperCaseCheck = false;
         return upperCaseCheck;
+    } else {
+        chooseUpper();
     }
     return upperCaseCheck;
 }
 
 // Function asking user if they want numbers included in password
 function chooseNumbers() {
-    numberCheck = prompt("Would you like numbers included in  your password? \n(Yes or no");
+    numberCheck = prompt("Would you like numbers included in your password? \n(Yes or No)");
 
     numberCheck = numberCheck.toLowerCase();
 
@@ -80,7 +82,7 @@ function chooseNumbers() {
 }
 // Function asking user if they want special characters
 function chooseSpecial() {
-    specialCheck = prompt("Would you like to include special characters in your password? \n(Yes or No");
+    specialCheck = prompt("Would you like to include special characters in your password? \n(Yes or No)");
     specialCheck = specialCheck.toLowerCase();
 
     if (specialCheck === "yes" || specialCheck === "y") {
