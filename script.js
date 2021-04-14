@@ -60,7 +60,7 @@ function chooseUpper() {
         upperCaseCheck = false;
         return upperCaseCheck;
     }
-    return uppercaseCheck;
+    return upperCaseCheck;
 }
 
 // Function asking user if they want numbers included in password
@@ -71,9 +71,9 @@ function chooseNumbers() {
 
     if (numberCheck === "yes" || numberCheck === "y") {
         numberCheck = true;
-        chooseNumbers();
+        return numberCheck;
     }
-    if (numberCheck === "no" || numberCheck === "n") {
+    else if (numberCheck === "no" || numberCheck === "n") {
         numberCheck = false;
         return numberCheck;
 };
@@ -87,7 +87,7 @@ function chooseSpecial() {
         specialCheck = true;
         return specialCheck;
     }
-    if (specialCheck === "no" || specialCheck === "n") {
+    else if (specialCheck === "no" || specialCheck === "n") {
         specialCheck = false;
         return specialCheck;
     }
@@ -99,28 +99,28 @@ var generatePassword = function() {
     chooseLength();
     console.log(passwordLength);
     chooseUpper();
-    console.log(uppercaseCheck);
+    console.log(upperCaseCheck);
     chooseNumbers();
     console.log(numberCheck);
     chooseSpecial();
     console.log(specialCheck);
 
-var characters = lowercaseChar;
+var characters = lowerCaseChar;
 var password = "";
-if (uppercaseCheck && numberCheck && specialCheck) {
-    characters += uppercaseChar + numberChar + specialChar;
+if (upperCaseCheck && numberCheck && specialCheck) {
+    characters += upperCaseChar + numberChar + specialChar;
   }
-  if (uppercaseCheck && numberCheck) {
-    characters += uppercaseChar + numberChar;
+  if (upperCaseCheck && numberCheck) {
+    characters += upperCaseChar + numberChar;
   }
   if (numberCheck && specialCheck) {
     characters += numberChar + specialChar;
   }
-  if (uppercaseCheck && specialCheck) {
-    characters += uppercaseChar + specialChar;
+  if (upperCaseCheck && specialCheck) {
+    characters += upperCaseChar + specialChar;
   }
-  if (uppercaseCheck) {
-    characters += uppercaseChar;
+  if (upperCaseCheck) {
+    characters += upperCaseChar;
   }
   if (numberCheck) {
     characters += numberChar;
@@ -128,7 +128,7 @@ if (uppercaseCheck && numberCheck && specialCheck) {
   if (specialCheck) {
     characters += specialChar;
   } else {
-    characters === lowercaseChar;
+    characters === lowerCaseChar;
   }
 
   for (var i = 0; i < passwordLength; i++) {
@@ -138,7 +138,7 @@ if (uppercaseCheck && numberCheck && specialCheck) {
 }
 
 
-
+// Function for writing to the #password input
 function writePassword() {
     var password = "";
     password = generatePassword();
@@ -146,10 +146,8 @@ function writePassword() {
     passwordText.value = password;
   }
   
+  // Event listener to generate password once the button is clicked
   generateBtn.addEventListener("click", writePassword);
-
-
-
 
 
 
