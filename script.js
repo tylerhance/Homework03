@@ -60,3 +60,47 @@ function chooseUpper() {
     }
     return uppercaseCheck;
 }
+
+// Function asking user if they want numbers included in password
+function chooseNumbers() {
+    numberCheck = prompt("Would you like numbers included in  your password? \n(Yes or no");
+
+    numberCheck = numberCheck.toLowerCase();
+
+    if (numberCheck === "yes" || numberCheck === "y") {
+        numberCheck = true;
+        chooseNumbers();
+    }
+    if (numberCheck === "no" || numberCheck === "n") {
+        numberCheck = false;
+        return numberCheck;
+};
+
+// Function asking user if they want special characters
+function chooseSpecial() {
+    specialCheck = prompt("Would you like to include special characters in your password? \n(Yes or No");
+    specialCheck = specialCheck.toLowerCase();
+
+    if (specialCheck === "yes" || specialCheck === "y") {
+        specialCheck = true;
+        return specialCheck;
+    }
+    if (specialCheck === "no" || specialCheck === "n") {
+        specialCheck = false;
+        return specialCheck;
+    }
+    
+}
+
+// Function for random generating password
+function generatePassword() {
+    chooseLength();
+}
+
+
+
+}
+
+
+
+
