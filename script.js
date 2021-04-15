@@ -16,15 +16,14 @@
 
 //Variables for password generator
 var generateBtn = document.querySelector("#generate");
-var lowerCaseChar = "abcdefghijklmnopqrstuvwxyz";
-var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numberChar = "0123456789";
-var specialChar = "!@#$%^&*()_-+={}[];:'`~<,>.?/|";
-var specialCheck = "";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "0123456789";
+var special = "!@#$%^&*()_-+={}[];:'`~<,>.?/|";
+var specialConfirm = "";
 var passwordLength = "";
-var upperCaseCheck = "";
-var numberCheck = "";
-var specialCheck = "";
+var upperCaseConfirm = "";
+var numberConfirm = "";
 
 //var writePassword = "";
 
@@ -51,54 +50,54 @@ function chooseLength() {
 
 // Function asking user if they want uppercase characters included with their password
 function chooseUpper() {
-  upperCaseCheck = prompt(
+  upperCaseConfirm = prompt(
     "Do you want uppercase letters in your password? \n(Yes or No)"
   );
 
-  upperCaseCheck = upperCaseCheck.toLowerCase();
+  upperCaseConfirm = upperCaseConfirm.toLowerCase();
 
-  if (upperCaseCheck === "yes" || upperCaseCheck === "y") {
-    upperCaseCheck = true;
-    return upperCaseCheck;
+  if (upperCaseConfirm === "yes" || upperCaseConfirm === "y") {
+    upperCaseConfirm = true;
+    return upperCaseConfirm;
   }
-  if (upperCaseCheck === "no" || upperCaseCheck === "n") {
-    upperCaseCheck = false;
-    return upperCaseCheck;
+  if (upperCaseConfirm === "no" || upperCaseConfirm === "n") {
+    upperCaseConfirm = false;
+    return upperCaseConfirm;
   } else {
     chooseUpper();
   }
-  return upperCaseCheck;
+  return upperCaseConfirm;
 }
 
 // Function asking user if they want numbers included in password
 function chooseNumbers() {
-  numberCheck = prompt(
+  numberConfirm = prompt(
     "Would you like numbers included in your password? \n(Yes or No)"
   );
 
-  numberCheck = numberCheck.toLowerCase();
+  numberConfirm = numberConfirm.toLowerCase();
 
-  if (numberCheck === "yes" || numberCheck === "y") {
-    numberCheck = true;
-    return numberCheck;
-  } else if (numberCheck === "no" || numberCheck === "n") {
-    numberCheck = false;
-    return numberCheck;
+  if (numberConfirm === "yes" || numberConfirm === "y") {
+    numberConfirm = true;
+    return numberConfirm;
+  } else if (numberConfirm === "no" || numberConfirm === "n") {
+    numberConfirm = false;
+    return numberConfirm;
   }
 }
 // Function asking user if they want special characters in their password
 function chooseSpecial() {
-  specialCheck = prompt(
+  specialConfirm = prompt(
     "Would you like to include special characters in your password? \n(Yes or No)"
   );
-  specialCheck = specialCheck.toLowerCase();
+  specialConfirm = specialConfirm.toLowerCase();
 
-  if (specialCheck === "yes" || specialCheck === "y") {
-    specialCheck = true;
-    return specialCheck;
-  } else if (specialCheck === "no" || specialCheck === "n") {
-    specialCheck = false;
-    return specialCheck;
+  if (specialConfirm === "yes" || specialConfirm === "y") {
+    specialConfirm = true;
+    return specialConfirm;
+  } else if (specialConfirm === "no" || specialConfirm === "n") {
+    specialConfirm = false;
+    return specialConfirm;
   }
 }
 
@@ -107,36 +106,36 @@ var generatePassword = function () {
   chooseLength();
   console.log(passwordLength);
   chooseUpper();
-  console.log(upperCaseCheck);
+  console.log(upperCaseConfirm);
   chooseNumbers();
-  console.log(numberCheck);
+  console.log(numberConfirm);
   chooseSpecial();
-  console.log(specialCheck);
+  console.log(specialConfirm);
 
-  var characters = lowerCaseChar;
+  var characters = lowerCase;
   var password = "";
-  if (upperCaseCheck && numberCheck && specialCheck) {
-    characters += upperCaseChar + numberChar + specialChar;
+  if (upperCaseConfirm && numberConfirm && specialConfirm) {
+    characters += upperCase + numbers + special;
   }
-  if (upperCaseCheck && numberCheck) {
-    characters += upperCaseChar + numberChar;
+  if (upperCaseConfirm && numberConfirm) {
+    characters += upperCase + numbers;
   }
-  if (numberCheck && specialCheck) {
-    characters += numberChar + specialChar;
+  if (numberConfirm && specialConfirm) {
+    characters += numbers + special;
   }
-  if (upperCaseCheck && specialCheck) {
-    characters += upperCaseChar + specialChar;
+  if (upperCaseConfirm && specialConfirm) {
+    characters += upperCase + special;
   }
-  if (upperCaseCheck) {
-    characters += upperCaseChar;
+  if (upperCaseConfirm) {
+    characters += upperCase;
   }
-  if (numberCheck) {
-    characters += numberChar;
+  if (numberConfirm) {
+    characters += numbers;
   }
-  if (specialCheck) {
-    characters += specialChar;
+  if (specialConfirm) {
+    characters += special;
   } else {
-    characters === lowerCaseChar;
+    characters === lowerCase;
   }
 
   for (var i = 0; i < passwordLength; i++) {
