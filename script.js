@@ -41,7 +41,7 @@ function chooseLength() {
   }
   if (passwordLength > 128) {
     alert(
-      "Invalid input! Password length must be a number between 8-128 characters"
+      "Invalid input! Password length must be a number between 8-128 characters!"
     );
     chooseLength();
   }
